@@ -5,7 +5,10 @@
 <h1>Why don’t you go back to the previous tab?</h1>
 <script>
 	if (window.opener) {
-		opener.location.replace('javascript:alert("Hi")');
+    // Check for arbitrary JS execution
+		opener.location.replace('javascript:alert("I just ran any javascript I wanted on your website, doesn\'t that make you feel warm and fuzzy")');
+    // If X-Frame-Options:same-origin is set, we still have access to window.opener so can still redirect
+    opener.location.replace('https://mathiasbynens.github.io/rel-noopener/');
 	} else {
 		document.querySelector('h1').innerHTML = 'The previous tab is safe and intact. <code>window.opener</code> was <code>null</code>; mischief <em>not</em> managed!';
 	}
