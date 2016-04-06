@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<!-- See https://mathiasbynens.github.io/rel-noopener/ -->
+<meta charset="utf-8">
+<title>Go back!</title>
+<h1>JS was successfully executed on the website which opened this!</h1>
+<script>
+  if (window.opener) {
+    // Check for arbitrary JS execution
+    opener.location.replace('javascript:alert("I just ran any javascript I wanted on your website, doesn\'t that make you feel warm and fuzzy")');
+  } else {
+    document.querySelector('h1').innerHTML = 'The previous tab is safe and intact. <code>window.opener</code> was <code>null</code>; mischief <em>not</em> managed!';
+  }
+</script>
